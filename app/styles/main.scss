@@ -37,11 +37,11 @@ core-toolbar {
   background-color: #03A9F4;
 }
 
-paper-item {
+a {
   core-icon {
     margin-right: 4px;
   }
-  a {
+  paper-item {
     text-decoration: none;
     color: #333;
   }
