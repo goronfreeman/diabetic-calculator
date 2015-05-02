@@ -37,6 +37,12 @@ core-toolbar {
   background-color: #009688;
 }
 
-paper-item > core-icon {
-  margin-right: 4px;
+paper-item {
+  core-icon {
+    margin-right: 4px;
+  }
+  a {
+    text-decoration: none;
+    color: #333;
+  }
 }
