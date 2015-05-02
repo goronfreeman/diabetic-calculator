@@ -5,10 +5,6 @@
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0288D1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <link rel="shortcut icon' href='favicon.png' type='image/x-icon" />
-
   <title>poly foo</title>
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -38,18 +34,18 @@
         <core-toolbar>Menu</core-toolbar>
 
         <!-- Drawer Content -->
-        <core-menu selected="0">
+        <core-menu selected="calculator">
           <paper-item>
             <core-icon icon="hardware:smartphone"></core-icon>
-            <a href="#0">Calculator</a>
+            <a href="#calculator">Calculator</a>
           </paper-item>
           <paper-item>
             <core-icon icon="create"></core-icon>
-            <a href="#1">Contact</a>
+            <a href="#contact">Contact</a>
           </paper-item>
           <paper-item>
             <core-icon icon="help"></core-icon>
-            <a href="#2">About</a>
+            <a href="#about">About</a>
           </paper-item>
         </core-menu>
 
@@ -65,14 +61,14 @@
         </core-toolbar>
 
         <!-- Main Content -->
-        <core-animated-pages id="pages" selected="{{route}}" transitions="slide-from-right">
-          <section id="calculator">
+        <core-animated-pages valueattr="hash" id="pages" selected="{{route}}" transitions="slide-from-right">
+          <section hash="calculator">
             <calculator-page></calculator-page>
           </section>
-          <section id="contact">
+          <section hash="contact">
             <contact-page></contact-page>
           </section>
-          <section id="about">
+          <section hash="about">
             <about-page></about-page>
           </section>
         </core-animated-pages>
