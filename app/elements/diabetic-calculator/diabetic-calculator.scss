@@ -5,7 +5,7 @@
 
 // colors
 $material-blue: #03A9F4;
-$material-orange: #FF5722;
+$material-red: #F44336;
 
 :host {
   display: block;
@@ -31,7 +31,7 @@ $material-orange: #FF5722;
 }
 
 paper-button {
-  background-color: $material-orange;
+  background-color: $material-red;
   color: white;
 }
 
