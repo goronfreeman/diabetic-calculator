@@ -15,7 +15,7 @@
         <paper-button id="selectPercentage" raised="true" role="button">Confirm</paper-button>
       </section>
       <section class="card" id="stats">
-        <table>
+        <table class="table table-striped">
           <thead>
             <tr>
               <th colspan="2">Stats</th>
@@ -45,7 +45,7 @@
           </tbody>
         </table>
 
-        <table>
+        <table class="table table-striped">
           <thead>
             <tr>
               <th colspan="3">Breakdown by Risk Group</th>
@@ -101,6 +101,7 @@
           var calc = this;
           calc.step = 1;
 
+          // TODO: Calculate
           calc.diabeticPatients = 1;
           calc.screeningAndPrevention = 2;
           calc.newUlcerations = 3;
