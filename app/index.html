@@ -27,7 +27,7 @@
   <template is="auto-binding" id="app">
     <flatiron-director route="{{route}}" autoHash></flatiron-director>
 
-    <core-drawer-panel>
+    <core-drawer-panel id="drawer">
 
       <!-- Drawer -->
       <core-header-panel drawer>
@@ -36,7 +36,7 @@
         <core-toolbar>Menu</core-toolbar>
 
         <!-- Drawer Content -->
-        <core-menu selected="calculator">
+        <core-menu selected="calculator" on-core-select="{{menuItemSelected}}">
           <a href="#calculator">
             <paper-item>
               <core-icon icon="hardware:smartphone"></core-icon>
@@ -75,9 +75,12 @@
           </section>
           <section hash="contact">
             <contact-page></contact-page>
+          </div>
           </section>
           <section hash="about">
+            <div style="background-color: green">
             <about-page></about-page>
+          </div>
           </section>
         </core-animated-pages>
       </core-header-panel>
