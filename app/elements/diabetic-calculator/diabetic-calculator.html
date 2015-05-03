@@ -31,19 +31,27 @@
             </tr>
             <tr>
               <td>Screening &amp; Prevention</td>
-              <td>{{screeningAndPrevention}}</td>
+              <td>
+                <rounded-output decimalPlaces="{{rounding}}" value="{{screeningAndPrevention}}"></rounded-output>
+              </td>
             </tr>
             <tr>
               <td>New Ulcerations</td>
-              <td>{{newUlcerations}}</td>
+              <td>
+                <rounded-output decimalPlaces="{{rounding}}" value="{{newUlcerations}}"></rounded-output>
+              </td>
             </tr>
             <tr>
               <td>Wound Care</td>
-              <td>{{woundCare}}</td>
+              <td>
+                <rounded-output decimalPlaces="{{rounding}}" value="{{woundCare}}"></rounded-output>
+              </td>
             </tr>
             <tr>
               <td>Total Visits</td>
-              <td>{{totalVisits}}</td>
+              <td>
+                <rounded-output decimalPlaces="{{rounding}}" value="{{totalVisits}}"></rounded-output>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -62,9 +70,15 @@
           <tbody>
             <template repeat="{{group in groups}}">
               <tr>
-                <td>{{group.number}}</td>
-                <td>{{group.patients}}</td>
-                <td>{{group.visits.min}} / {{group.visits.max}}<td>
+                <td>
+                  {{group.number}}
+                </td>
+                <td>
+                  <rounded-output decimalPlaces="{{rounding}}" value="{{group.patients}}"></rounded-output>
+                </td>
+                <td>
+                  <rounded-output decimalPlaces="{{rounding}}" value="{{group.visits.min}}"></rounded-output> / <rounded-output decimalPlaces="{{rounding}}" value="{{group.visits.max}}"></rounded-output>
+                <td>
               </tr>
             </template>
           </tbody>

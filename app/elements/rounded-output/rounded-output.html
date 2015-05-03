@@ -1,0 +1,18 @@
+<link rel="import" href="../elements.html">
+
+<polymer-element name="rounded-output" attributes="decimalPlaces value">
+  <template>
+    {{roundedValue}}
+  </template>
+  <script>
+    (function () {
+      Polymer('rounded-output', {
+        valueChanged: function() {
+          var decimalPlaces = typeof this.decimalPlaces === 'undefined' ? 2 : this.decimalPlaces;
+
+          if (typeof this.value !== 'undefined') this.roundedValue = this.value.toFixed(decimalPlaces);
+        }
+      });
+    })();
+  </script>
+</polymer-element>
