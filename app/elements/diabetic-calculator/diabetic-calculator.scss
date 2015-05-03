@@ -2,6 +2,11 @@
 /* http://robdodson.me/blog/2014/04/10/shadow-dom-css-cheat-sheet */
 
 /* styles for the custom element itself - lowest specificity */
+
+// colors
+$material-blue: #03A9F4;
+$material-orange: #FF5722;
+
 :host {
   display: block;
 }
@@ -23,6 +28,23 @@
 
 .center-content {
   text-align: center;
+}
+
+paper-button {
+  background-color: $material-orange;
+  color: white;
+}
+
+paper-slider::shadow {
+  #sliderBar::shadow #activeProgress {
+    background-color: $material-blue;
+  }
+  #sliderKnobInner {
+    background-color: $material-blue;
+    &::before {
+      background-color: $material-blue;
+    }
+  }
 }
 
 // Taken wholesale from Bootstrap cuz tables are hard
