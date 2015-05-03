@@ -6,6 +6,9 @@
 
     <core-animated-pages selected="{{step}}" transitions="slide-from-bottom">
       <section class="card center-content" id="percentage">
+        <div>
+          <paper-input id="population" floatingLabel="true" label="Surrounding Population"></paper-input>
+        </div>
         <core-label>
           How much diabeetus do you want?
           <div>
@@ -86,6 +89,7 @@
           calc.percentage = 7;
 
           calc.selectPercentage();
+          // calc.$.population.focus();
           calc.$.selectPercentage.addEventListener('click', function() {
             calc.percentage = calc.$.slider.value;
             calc.showStats();
