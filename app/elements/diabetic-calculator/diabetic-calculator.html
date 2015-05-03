@@ -64,8 +64,8 @@
               <tr>
                 <td>{{group.number}}</td>
                 <td>{{group.patients}}</td>
-                <td>{{group.visits}}<td>
-              </t>
+                <td>{{group.visits.min}} / {{group.visits.max}}<td>
+              </tr>
             </template>
           </tbody>
         </table>
@@ -100,29 +100,55 @@
           var calc = this;
           calc.step = 1;
 
-          var pop = calc.population * calc.percentage / 10;
-          calc.groups = [
+          var pop = calc.population * calc.percentage / 100;
+          var groupData = [
             {
               number: 0,
-              patients: pop * .4230,
-              visits: 100
+              patients: .4230,
+              visits: {
+                min: 1,
+                max: 1
+              }
             },
             {
               number: 1,
-              patients: pop * .1510,
-              visits: 100
+              patients: .1510,
+              visits: {
+                min: 2,
+                max: 4
+              }
             },
             {
               number: 2,
-              patients: pop * .2800,
-              visits: 100
+              patients: .2800,
+              visits: {
+                min: 4,
+                max: 6
+              }
             },
             {
               number: 3,
-              patients: pop * .1460,
-              visits: 100
+              patients: .1460,
+              visits: {
+                min: 6,
+                max: 12
+              }
             }
-          ]
+          ];
+
+          calc.groups = groupData.map(function(el) {
+            var patients = pop * el.patients;
+
+            return {
+              number: el.number,
+              patients: patients,
+              visits: {
+                min: patients * el.visits.min,
+                max: patients * el.visits.max
+              }
+            };
+          });
+
           // TODO: Calculate
           calc.diabeticPatients = 1;
           calc.screeningAndPrevention = 2;
