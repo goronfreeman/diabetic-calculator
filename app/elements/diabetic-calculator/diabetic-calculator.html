@@ -15,6 +15,65 @@
         <paper-button id="selectPercentage" raised="true" role="button">Confirm</paper-button>
       </section>
       <section class="card" id="stats">
+        <table>
+          <thead>
+            <tr>
+              <th colspan="2">Stats</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Diabetic Patients</td>
+              <td>{{diabeticPatients}}</td>
+            </tr>
+            <tr>
+              <td>Screening &amp; Prevention</td>
+              <td>{{screeningAndPrevention}}</td>
+            </tr>
+            <tr>
+              <td>New Ulcerations</td>
+              <td>{{newUlcerations}}</td>
+            </tr>
+            <tr>
+              <td>Wound Care</td>
+              <td>{{woundCare}}</td>
+            </tr>
+            <tr>
+              <td>Total Visits</td>
+              <td>{{totalVisits}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th colspan="3">Breakdown by Risk Group</th>
+            </tr>
+            <tr>
+              <td>Risk</td>
+              <td>Patients</td>
+              <td>Visits</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0</td>
+              <td></td>
+              <td></tdd>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
         <paper-button id="reset">Reset</paper-button>
       </section>
     </core-animated-pages>
@@ -39,7 +98,14 @@
           this.step = 0;
         },
         showStats: function() {
-          this.step = 1;
+          var calc = this;
+          calc.step = 1;
+
+          calc.diabeticPatients = 1;
+          calc.screeningAndPrevention = 2;
+          calc.newUlcerations = 3;
+          calc.woundCare = 4;
+          calc.totalVisits = 5;
         }
       });
     })();
