@@ -60,21 +60,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>0</td>
-              <td></td>
-              <td></tdd>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td></td>
-              <td></td>
-            </tr>
+            <template repeat="{{group in groups}}">
+              <tr>
+                <td>{{group.number}}</td>
+                <td>{{group.patients}}</td>
+                <td>{{group.visits}}<td>
+              </t>
+            </template>
           </tbody>
         </table>
         <paper-button id="reset">Reset</paper-button>
@@ -87,11 +79,14 @@
         ready: function () {
           var calc = this;
           calc.percentage = 7;
+          calc.population = 100;
 
           calc.selectPercentage();
           // calc.$.population.focus();
           calc.$.selectPercentage.addEventListener('click', function() {
             calc.percentage = calc.$.slider.value;
+            calc.population = calc.$.population.value;
+
             calc.showStats();
           });
           calc.$.reset.addEventListener('click', function() {
@@ -105,6 +100,29 @@
           var calc = this;
           calc.step = 1;
 
+          var pop = calc.population * calc.percentage / 10;
+          calc.groups = [
+            {
+              number: 0,
+              patients: pop * .4230,
+              visits: 100
+            },
+            {
+              number: 1,
+              patients: pop * .1510,
+              visits: 100
+            },
+            {
+              number: 2,
+              patients: pop * .2800,
+              visits: 100
+            },
+            {
+              number: 3,
+              patients: pop * .1460,
+              visits: 100
+            }
+          ]
           // TODO: Calculate
           calc.diabeticPatients = 1;
           calc.screeningAndPrevention = 2;
