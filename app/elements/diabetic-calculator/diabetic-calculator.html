@@ -105,6 +105,7 @@
             {
               number: 0,
               patients: .4230,
+              ulceration: .0200,
               visits: {
                 min: 1,
                 max: 1
@@ -113,6 +114,7 @@
             {
               number: 1,
               patients: .1510,
+              ulceration: .0450,
               visits: {
                 min: 2,
                 max: 4
@@ -121,6 +123,7 @@
             {
               number: 2,
               patients: .2800,
+              ulceration: .138,
               visits: {
                 min: 4,
                 max: 6
@@ -129,6 +132,7 @@
             {
               number: 3,
               patients: .1460,
+              ulceration: .32,
               visits: {
                 min: 6,
                 max: 12
@@ -136,25 +140,34 @@
             }
           ];
 
+          var newUlcerations = 0;
+          var woundCareVisits = 0;
+          var screeningAndPreventionVisits = 0;
           calc.groups = groupData.map(function(el) {
             var patients = pop * el.patients;
 
-            return {
+
+            var group = {
               number: el.number,
               patients: patients,
+              ulcerations: patients * el.ulceration,
               visits: {
                 min: patients * el.visits.min,
                 max: patients * el.visits.max
               }
             };
+
+            newUlcerations += group.ulcerations;
+            woundCareVisits += 0;
+            return group;
           });
 
           // TODO: Calculate
-          calc.diabeticPatients = 1;
-          calc.screeningAndPrevention = 2;
-          calc.newUlcerations = 3;
-          calc.woundCare = 4;
-          calc.totalVisits = 5;
+          calc.diabeticPatients = pop;
+          calc.screeningAndPrevention = screeningAndPreventionVisits;
+          calc.newUlcerations = newUlcerations;
+          calc.woundCare = woundCareVisits;
+          calc.totalVisits = 0; // FIXME
         }
       });
     })();
