@@ -1,6 +1,6 @@
 <link rel="import" href="../elements.html">
 
-<polymer-element name="diabetic-calculator" attributes="">
+<polymer-element name="diabetic-calculator" attributes="rounding">
   <template>
     <link rel="stylesheet" href="diabetic-calculator.css">
 
@@ -21,7 +21,7 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th colspan="2">Stats</th>
+              <th colspan="2">Stats (population: {{population}}, percentage: {{percentage}})</th>
             </tr>
           </thead>
           <tbody>
