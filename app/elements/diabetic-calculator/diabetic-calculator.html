@@ -159,15 +159,15 @@
 
             newUlcerations += group.ulcerations;
             woundCareVisits += 0;
+            screeningAndPreventionVisits += (group.visits.min + group.visits.max) / 2;
             return group;
           });
 
-          // TODO: Calculate
           calc.diabeticPatients = pop;
           calc.screeningAndPrevention = screeningAndPreventionVisits;
           calc.newUlcerations = newUlcerations;
-          calc.woundCare = woundCareVisits;
-          calc.totalVisits = 0; // FIXME
+          calc.woundCare = newUlcerations * 20;
+          calc.totalVisits = calc.screeningAndPrevention + calc.newUlcerations + calc.woundCare;
         }
       });
     })();
