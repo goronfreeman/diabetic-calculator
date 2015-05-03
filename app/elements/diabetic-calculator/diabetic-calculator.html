@@ -5,15 +5,15 @@
     <link rel="stylesheet" href="diabetic-calculator.css">
 
     <core-animated-pages selected="{{step}}" transitions="slide-from-right">
-      <section id="percentage">
+      <section class="card" id="percentage">
         <paper-slider id="slider" min="0" max="20" value="7" pin="true"></paper-slider>
         <paper-button id="selectPercentage" raised="true" role="button">Flat button</paper-button>
       </section>
-      <section id="stats">
+      <section class="card" id="stats">
         Stats
+        <paper-button id="reset">Reset</paper-button>
       </section>
     </core-animated-pages>
-    <paper-button id="reset">Reset</paper-button>
   </template>
   <script>
     (function () {
