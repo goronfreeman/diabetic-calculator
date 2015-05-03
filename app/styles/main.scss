@@ -1,3 +1,7 @@
+// colors
+$material-blue: #03A9F4;
+$material-orange: #FF5722;
+
 body {
   background: #fafafa;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -34,7 +38,7 @@ body {
 
 core-toolbar {
   color: #FAFAFA;
-  background-color: #03A9F4;
+  background-color: $material-blue;
 }
 
 a {
