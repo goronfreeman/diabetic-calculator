@@ -6,9 +6,9 @@
 
     <core-animated-pages selected="{{step}}" transitions="slide-from-bottom">
       <section class="card center-content" id="percentage">
-        <div>
-          <paper-input id="population" floatingLabel="true" label="Surrounding Population"></paper-input>
-        </div>
+        <paper-input-decorator id="validator" error="Value must be an integer!" floatingLabel label="Surrounding Population" isInvalid="{{!$.population.validity.valid}}">
+          <input id="population" is="core-input" pattern="[0-9]+">
+        </paper-input-decorator>
         <core-label>
           What is the percentage of diabetes in your area?
           <div>
@@ -98,10 +98,12 @@
           calc.selectPercentage();
           // calc.$.population.focus();
           calc.$.selectPercentage.addEventListener('click', function() {
-            calc.percentage = calc.$.slider.value;
-            calc.population = calc.$.population.value;
+            if (calc.$.validator.validate()) {
+              calc.percentage = calc.$.slider.value;
+              calc.population = calc.$.population.value;
 
-            calc.showStats();
+              calc.showStats();
+            }
           });
           calc.$.reset.addEventListener('click', function() {
             calc.selectPercentage();
