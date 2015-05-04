@@ -30,8 +30,16 @@ $material-red: #F44336;
   text-align: center;
 }
 
-core-input {
+input {
+  align: center;
   text-align: center;
+}
+
+paper-input-decorator {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
 }
 
 paper-button {

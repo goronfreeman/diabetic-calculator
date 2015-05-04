@@ -6,13 +6,14 @@
 
     <core-animated-pages selected="{{step}}" transitions="slide-from-bottom">
       <section class="card center-content" id="percentage">
-        <paper-input-decorator id="validator" error="Value must be an integer!" floatingLabel label="Surrounding Population" isInvalid="{{!$.population.validity.valid}}">
+        <paper-input-decorator id="validator" error="Value must be an integer!" floatingLabel
+                               label="Surrounding Population" isInvalid="{{!$.population.validity.valid}}">
           <input type="number" id="population" is="core-input" pattern="[0-9]+">
         </paper-input-decorator>
         <core-label>
           What is the percentage of diabetes in your area?
           <div>
-            <paper-slider id="slider" min="0" max="20" value="7" pin="true"></paper-slider>
+            <paper-slider id="slider" min="0" max="20" value="7" editable></paper-slider>
           </div>
         </core-label>
         <paper-button id="selectPercentage" raised="true" role="button">Confirm</paper-button>
