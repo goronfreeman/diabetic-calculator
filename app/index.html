@@ -25,6 +25,23 @@
 
 <body unresolved fullbleed layout vertical>
   <template is="auto-binding" id="app">
+    <core-style id="card">
+      .card {
+        width: 80%;
+        height: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+        background-color: rgb(255, 255, 255);
+        padding: 12px;
+      }
+    </core-style>
+
     <flatiron-director route="{{route}}" autoHash></flatiron-director>
 
     <core-drawer-panel id="drawer">
@@ -104,20 +121,3 @@
 </body>
 
 </html>
-
-<core-style id="card">
-  .card {
-    width: 80%;
-    height: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
-    background-color: rgb(255, 255, 255);
-    padding: 12px;
-  }
-</core-style>
