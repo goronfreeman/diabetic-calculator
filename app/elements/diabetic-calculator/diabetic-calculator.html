@@ -7,7 +7,7 @@
 
     <core-animated-pages selected="{{step}}" transitions="slide-from-bottom">
       <section class="card center-content" id="percentage">
-        <paper-input-decorator id="validator" error="Value must be an integer (no commas)" floatingLabel
+        <paper-input-decorator id="validator" error="Please enter a number with no commas" floatingLabel
                                label="Surrounding Population" isInvalid="{{!$.population.validity.valid}}">
           <input type="number" id="population" is="core-input" pattern="[0-9]+">
         </paper-input-decorator>
