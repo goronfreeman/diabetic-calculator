@@ -2,7 +2,6 @@
 
 // Include Gulp & Tools We'll Use
 var gulp = require('gulp');
-var sass = require('gulp-sass');
 var $ = require('gulp-load-plugins')();
 var del = require('del');
 var runSequence = require('run-sequence');
@@ -118,13 +117,6 @@ gulp.task('elements', function () {
     .pipe($.if('*.css', $.cssmin()))
     .pipe(gulp.dest('dist/elements'))
     .pipe($.size({title: 'elements'}));
-});
-
-// Use scss for styles
-gulp.task('sass', function () {
-    gulp.src('./scss/*.scss')
-        .pipe(sass())
-        .pipe(gulp.dest('./css'));
 });
 
 // Scan Your HTML For Assets & Optimize Them
