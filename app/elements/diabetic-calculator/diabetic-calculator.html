@@ -6,87 +6,91 @@
     <core-style ref="card"></core-style>
 
     <core-animated-pages selected="{{step}}" transitions="slide-from-bottom">
-      <section class="card center-content" id="percentage">
-        <paper-input-decorator id="validator" error="Please enter a number with no commas" floatingLabel
-                               label="Surrounding Population" isInvalid="{{!$.population.validity.valid}}">
-          <input type="number" id="population" is="core-input" pattern="[0-9]+">
-        </paper-input-decorator>
-        <core-label>
-          What is the percentage of diabetes in your area?
-          <div>
-            <paper-slider id="slider" min="0" max="20" value="7" editable></paper-slider>
-          </div>
-        </core-label>
-        <paper-button id="selectPercentage" raised="true" role="button">Confirm</paper-button>
-      </section>
-      <section class="card" id="stats">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th colspan="2">Stats (population: {{population}}, percentage: {{percentage}})</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Diabetic Patients</td>
-              <td>{{diabeticPatients}}</td>
-            </tr>
-            <tr>
-              <td>Screening &amp; Prevention</td>
-              <td>
-                <rounded-output decimalPlaces="{{rounding}}" value="{{screeningAndPrevention}}"></rounded-output>
-              </td>
-            </tr>
-            <tr>
-              <td>New Ulcerations</td>
-              <td>
-                <rounded-output decimalPlaces="{{rounding}}" value="{{newUlcerations}}"></rounded-output>
-              </td>
-            </tr>
-            <tr>
-              <td>Wound Care</td>
-              <td>
-                <rounded-output decimalPlaces="{{rounding}}" value="{{woundCare}}"></rounded-output>
-              </td>
-            </tr>
-            <tr>
-              <td>Total Visits</td>
-              <td>
-                <rounded-output decimalPlaces="{{rounding}}" value="{{totalVisits}}"></rounded-output>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th colspan="3">Breakdown by Risk Group</th>
-            </tr>
-            <tr>
-              <td>Risk</td>
-              <td>Patients</td>
-              <td>Visits</td>
-            </tr>
-          </thead>
-          <tbody>
-            <template repeat="{{group in groups}}">
+      <paper-shadow z=1 class="card">
+        <section class="card center-content" id="percentage">
+          <paper-input-decorator id="validator" error="Please enter a number with no commas" floatingLabel
+                                 label="Surrounding Population" isInvalid="{{!$.population.validity.valid}}">
+            <input type="number" id="population" is="core-input" pattern="[0-9]+">
+          </paper-input-decorator>
+          <core-label>
+            What is the percentage of diabetes in your area?
+            <div>
+              <paper-slider id="slider" min="0" max="20" value="7" editable></paper-slider>
+            </div>
+          </core-label>
+          <paper-button id="selectPercentage" raised="true" role="button">Confirm</paper-button>
+        </section>
+      </paper-shadow>
+      <paper-shadow z=1 class="card">
+        <section class="card" id="stats">
+          <table class="table table-striped">
+            <thead>
               <tr>
-                <td>
-                  {{group.number}}
-                </td>
-                <td>
-                  <rounded-output decimalPlaces="{{rounding}}" value="{{group.patients}}"></rounded-output>
-                </td>
-                <td>
-                  <rounded-output decimalPlaces="{{rounding}}" value="{{group.visits.min}}"></rounded-output> / <rounded-output decimalPlaces="{{rounding}}" value="{{group.visits.max}}"></rounded-output>
-                <td>
+                <th colspan="2">Stats (population: {{population}}, percentage: {{percentage}})</th>
               </tr>
-            </template>
-          </tbody>
-        </table>
-        <paper-button id="reset">Reset</paper-button>
-      </section>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Diabetic Patients</td>
+                <td>{{diabeticPatients}}</td>
+              </tr>
+              <tr>
+                <td>Screening &amp; Prevention</td>
+                <td>
+                  <rounded-output decimalPlaces="{{rounding}}" value="{{screeningAndPrevention}}"></rounded-output>
+                </td>
+              </tr>
+              <tr>
+                <td>New Ulcerations</td>
+                <td>
+                  <rounded-output decimalPlaces="{{rounding}}" value="{{newUlcerations}}"></rounded-output>
+                </td>
+              </tr>
+              <tr>
+                <td>Wound Care</td>
+                <td>
+                  <rounded-output decimalPlaces="{{rounding}}" value="{{woundCare}}"></rounded-output>
+                </td>
+              </tr>
+              <tr>
+                <td>Total Visits</td>
+                <td>
+                  <rounded-output decimalPlaces="{{rounding}}" value="{{totalVisits}}"></rounded-output>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th colspan="3">Breakdown by Risk Group</th>
+              </tr>
+              <tr>
+                <td>Risk</td>
+                <td>Patients</td>
+                <td>Visits</td>
+              </tr>
+            </thead>
+            <tbody>
+              <template repeat="{{group in groups}}">
+                <tr>
+                  <td>
+                    {{group.number}}
+                  </td>
+                  <td>
+                    <rounded-output decimalPlaces="{{rounding}}" value="{{group.patients}}"></rounded-output>
+                  </td>
+                  <td>
+                    <rounded-output decimalPlaces="{{rounding}}" value="{{group.visits.min}}"></rounded-output> / <rounded-output decimalPlaces="{{rounding}}" value="{{group.visits.max}}"></rounded-output>
+                  <td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+          <paper-button id="reset">Reset</paper-button>
+        </section>
+      </paper-shadow>
     </core-animated-pages>
   </template>
   <script>
